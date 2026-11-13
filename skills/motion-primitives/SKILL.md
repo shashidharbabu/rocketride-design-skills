@@ -27,6 +27,10 @@ npm install motion lucide-react
 # lib/utils.ts must exist with the cn() helper (clsx + tailwind-merge)
 ```
 
+`lucide-react` is a dependency of the copied demo components, not an icon
+decision — if the project uses another set (see **iconography**), swap the
+imports in the copied file.
+
 Add components one at a time — either CLI works, both copy source into
 `components/motion-primitives/` (path configurable):
 

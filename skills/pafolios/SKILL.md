@@ -1,6 +1,6 @@
 ---
 name: pafolios
-description: Mine Pafolios (pafolios.com), a free gallery of designer portfolio examples and annotated product-design case studies, for process narrative and presentation structure — how designers frame problem, process, before/after, and outcome — and translate that narrative anatomy into showcase, specimen, and case-study pages built with Next.js 14 + Tailwind 3.4 + motion v13 (`motion/react`). Use this whenever building or improving a portfolio site, case-study page, project showcase, specimen page, "our work" section, or design-process writeup; whenever someone asks "how should I present this project", "structure my case study", "make the showcase tell a story", or "find portfolio inspiration"; and whenever a pafolios.com link appears in conversation or a Design Lab specimen page needs a narrative spine rather than just aesthetics.
+description: Mine Pafolios (pafolios.com), a free gallery of designer portfolio examples and annotated product-design case studies, for process narrative and presentation structure — how designers frame problem, process, before/after, and outcome — and translate that narrative anatomy into showcase, specimen, and case-study pages built with Next.js 14 + Tailwind 3.4 + motion v13 (`motion/react`). Use this whenever building or improving a portfolio site, case-study page, project showcase, specimen page, "our work" section, or design-process writeup; whenever someone asks "how should I present this project", "structure my case study", "make the showcase tell a story", or "find portfolio inspiration"; and whenever a pafolios.com link appears in conversation or a design-system specimen page needs a narrative spine rather than just aesthetics.
 ---
 
 # Pafolios
@@ -16,8 +16,7 @@ product-design case studies, each **annotated with why it works**.
 
 This skill's angle is deliberately not aesthetics: it mines portfolios for
 **process narrative and presentation structure** — how strong designers pace
-a story — and applies that to showcase and specimen pages (including this
-repo's Design Lab specimens).
+a story — and applies that to showcase and design-system specimen pages.
 
 1. **Selection** — routes into the site for humans and for Claude.
 2. **Translation** — a narrative-anatomy catalog, then page structure.

@@ -69,7 +69,7 @@ token and don't mix.
 ## Worked remap: shadcn defaults → an existing dark-only palette
 
 Never accept the default zinc theme on a branded surface. For a dark-only site
-(e.g. this repo's Signal Bench: `panel #12151C`, `ember #FF6A3D`,
+(e.g. a dark-only palette such as `panel #12151C`, `ember #FF6A3D`,
 `muted #8A93A6`, hairlines `#2B2B2B`, text `#E8E8E8`), put the dark values
 straight into `:root` and **omit the `.dark` block entirely** — a dark-only
 site has no light mode to toggle away from:

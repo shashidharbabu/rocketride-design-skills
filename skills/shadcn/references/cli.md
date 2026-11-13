@@ -30,7 +30,10 @@ configures CSS variables. Key options (4.x):
 `init` can also take component names/URLs directly and will install them after
 setup. On Tailwind v3 projects use `npx shadcn@2.3.0 init` instead — the 2.x
 init asks for style (use `new-york`), base color, and CSS-variables choice, and
-installs `tailwindcss-animate` (1.0.7). The 4.x init writes
+installs `tailwindcss-animate` (1.0.7). **As of Oct 2026 the 2.3.0 init writes
+oklch values into `hsl(var(--x))` wrappers** — patch the wrappers to
+`color-mix(in oklch, var(--x) calc(<alpha-value> * 100%), transparent)` before
+adding components (sed one-liner in SKILL.md). The 4.x init writes
 `@import "shadcn/tailwind.css"` (Tailwind v4 syntax) into your global CSS —
 this is what breaks v3 builds.
 
@@ -101,6 +104,22 @@ Configure namespaces in `components.json`. `{name}` is substituted per item:
 
 Known public namespaces beyond `@shadcn` include `@v0` (v0.dev output). The
 registry directory at ui.shadcn.com/docs/registry/registry-index lists more.
+
+### Third-party registries we've tested (Oct 2026, CLI 4.22.1)
+
+Each has its own skill with the verified traps; this is just the install line.
+
+| Registry | Install | Built-in namespace? | Skill |
+|---|---|---|---|
+| audiocn (audio UI) | `npx shadcn@latest add @audiocn/<name>` | yes (in registry index) | `audiocn` — Tailwind v4 + React 19.2 only |
+| Arc (uiarc.dev) | add `"@uiarc": "https://uiarc.dev/r/{name}.json"`, then `add https://uiarc.dev/r/arc-foundation.json` first | no | `arc-ui` — own token system, collides with shadcn's |
+| gauge-ui | `npx shadcn@latest add https://gauge-ui.dev/r/gauge.json` | no | `gauge-ui` |
+| mdxcn | `npx shadcn@latest registry add @mdxcn=https://mdxcn.dev/r/{name}.json` | no — docs imply yes, CLI says `Unknown registry` | `mdxcn` — single items only, never `all.json` |
+| componentry | `npx shadcn@latest add @componentry/<name>` | yes | `componentry` |
+
+`shadcn registry add @ns=<url>` writes the `components.json` entry for you
+(4.x only). On a Tailwind v3 repo, still use `@latest add` for these — never
+`2.3.0` (see SKILL.md, "Oct 2026").
 
 ## Upgrade / diff workflow
 

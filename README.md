@@ -1,169 +1,178 @@
-# Claude Design Skills
+# RocketRide Design Skills
 
-**28 UI/UX and design skills for [Claude Code](https://claude.com/claude-code) — the ones that survived.**
+**34 UI/UX and design skills for [Claude Code](https://claude.com/claude-code). The ones that survived real projects.**
 
-This is a curated pack, not a dump. Each skill here was tried on real projects and kept because it changed the output. The dead weight is not in this repo.
-
-The pack covers the whole path from *"I don't know what this should look like"* to *"the fonts are licensed, the palette passes contrast, and the hero doesn't look like every other AI-built page."*
+This is a curated pack, not a dump. Each skill was tried on real work and kept because it changed the output. It covers the whole path from *"I don't know what this should look like"* to *"the fonts are licensed, the palette passes contrast, and the hero doesn't look like every other generated page."*
 
 ---
 
 ## Install
 
-Skills live in `.claude/skills/`. Drop in the whole pack or cherry-pick.
+**As a plugin (recommended, updates with the repo):**
 
-**Whole pack, one project:**
+```
+/plugin marketplace add shashidharbabu/rocketride-design-skills
+/plugin install rocketride-design@rocketride-design-skills
+```
+
+**Copy in, one project:**
 
 ```bash
-git clone https://github.com/shashidharbabu/claude-design-skills.git
+git clone https://github.com/shashidharbabu/rocketride-design-skills.git
 mkdir -p .claude/skills
-cp -R claude-design-skills/skills/* .claude/skills/
+cp -R rocketride-design-skills/skills/* .claude/skills/
 ```
 
-**Whole pack, every project (global):**
+**One skill:** `cp -R rocketride-design-skills/skills/<name> .claude/skills/`
 
-```bash
-cp -R claude-design-skills/skills/* ~/.claude/skills/
+Claude picks skills up from their frontmatter `description`; there is no registration step. Check with `/skills`.
+
+**Also install Taste Skill.** The pack routes to it but does not bundle it: v2 is about 39 MB with its own browser checker, and it updates fastest from its author's repo.
+
+```
+/plugin marketplace add Leonxlnx/taste-skill
+/plugin install taste-skill@taste-skill
 ```
 
-**One skill:**
-
-```bash
-cp -R claude-design-skills/skills/taste-skill .claude/skills/
-```
-
-Claude picks skills up automatically from their frontmatter `description` — no registration step. Verify with `/skills` in Claude Code.
-
-> **A note on loading everything at once.** Skill descriptions are always in context; skill bodies are not. 28 skills is a large routing surface. If you only build landing pages, install the ~8 you'll actually use. `design-arsenal` exists to route between them when you do install the lot.
+> **On loading everything at once.** Skill descriptions are always in context; bodies load only when a skill fires. 34 skills is a wide routing surface. If you only build landing pages, install the handful you use. `design-arsenal` routes between them when you install the lot.
 
 ---
 
 ## Start here
 
-If you install nothing else, install these three:
-
 | Skill | Why |
 |---|---|
-| **[design-arsenal](skills/design-arsenal/)** | The router. Maps any design need to the right skill and sequences them into a full design-system build. Read this first — it's the map to everything below. |
-| **[taste-skill](skills/taste-skill/)** | The anti-slop enforcer. Audit-first on redesigns, strict pre-flight, and a long list of the specific tells that make a page read as templated. |
-| **[ui-ux-pro-max](skills/ui-ux-pro-max/)** | The database. 84 styles, 192 palettes, 74 font pairings, 98 UX guidelines, 25 chart types across 22 stacks — queryable, not vibes. |
+| **[design-arsenal](skills/design-arsenal/)** | The router. Maps any design need to the right skill and sequences them into a full design-system build. Read it first. |
+| **Taste Skill** (separate plugin) | Builds a company or marketing site end to end, then checks it in a real browser before calling it done. In a repo with its own design system, use its rules and checker, not its kit. |
+| **[ui-ux-pro-max](skills/ui-ux-pro-max/)** | The database: styles, palettes, font pairings, UX rules and chart types across 22 stacks. Queryable, not vibes. |
 
 ---
 
 ## The full map
 
-### 🧭 Direction & judgment
-*Deciding what good looks like before anything gets built.*
+### Direction and judgment
 
 | Skill | Use when |
 |---|---|
-| [design-arsenal](skills/design-arsenal/) | The job is bigger than one asset — "build a design system", "full design pass". Also owns the glassmorphism recipe and the licensing pre-flight. |
-| [taste-skill](skills/taste-skill/) | Landing pages, portfolios, redesigns. Infers the right direction from the brief instead of defaulting to purple gradients. |
-| [frontend-design](skills/frontend-design/) | New UI or reshaping existing UI — aesthetic direction, typography, avoiding templated defaults. |
+| [design-arsenal](skills/design-arsenal/) | The job is bigger than one asset: "build a design system", "full design pass". Also owns the glass recipe and the licensing pre-flight. |
+| [frontend-design](skills/frontend-design/) | New UI or reshaping existing UI: aesthetic direction, typography, avoiding templated defaults. |
 | [ui-ux-pro-max](skills/ui-ux-pro-max/) | Any concrete lookup: palette, font pairing, product-type pattern, UX rule, motion preset, chart type. |
-| [soft-skill](skills/soft-skill/) | You want it to feel *expensive*. Exact fonts, spacing, shadows, card structure — and blocks the defaults that read as cheap. |
-| [redesign-skill](skills/redesign-skill/) | An existing site needs upgrading without breaking it. Audits first, identifies generic AI patterns, then fixes. |
-| [output-skill](skills/output-skill/) | Claude keeps truncating with `// ... rest of the code`. Bans placeholder patterns and enforces complete generation. |
+| [redesign-skill](skills/redesign-skill/) | An existing site needs upgrading without breaking it. Audits first, names the generic patterns, then fixes. |
+| [output-skill](skills/output-skill/) | Claude keeps truncating with `// ... rest of the code`. Bans placeholders and enforces complete output. |
 
-### 🎨 Style systems
-*Pick a committed look instead of averaging every look.*
+### Style systems
+
+Pick one committed look instead of averaging every look. Never stack two.
 
 | Skill | The look |
 |---|---|
-| [minimalist-skill](skills/minimalist-skill/) | Clean editorial. Warm monochrome, typographic contrast, flat bento grids, muted pastels. No gradients, no heavy shadows. |
-| [brutalist-skill](skills/brutalist-skill/) | Swiss print × military terminal. Rigid grids, extreme type-scale contrast, analog degradation. Declassified-blueprint energy. |
+| [soft-skill](skills/soft-skill/) | Agency polish. Exact fonts, spacing, shadows and card structure that feel expensive. |
+| [minimalist-skill](skills/minimalist-skill/) | Clean editorial. Warm monochrome, typographic contrast, flat bento grids. |
+| [brutalist-skill](skills/brutalist-skill/) | Swiss print meets military terminal. Rigid grids, extreme type-scale contrast. |
 
-### 🔭 Reference mining
-*Stealing structure, not pixels. Each skill turns a gallery into named decisions.*
+### Structure and reference mining
+
+Borrow structure, not pixels. Each skill turns a gallery or canvas into named decisions.
 
 | Skill | Source | Yields |
 |---|---|---|
-| [cosmos](skills/cosmos/) | [cosmos.so](https://cosmos.so) | Moodboard → named decisions (grid, type scale, spacing rhythm, color temperature) |
-| [recent-design](skills/recent-design/) | [recent.design](https://recent.design) | "Does this read current?" — trend triage: adopt / adapt / skip |
-| [supahero](skills/supahero/) | [supahero.io](https://supahero.io) | Hero anatomy decomposed into reusable structure |
+| [squig](skills/squig/) | [squig.sh](https://squig.sh) | Hand-drawn wireframe variations of a page before any styling |
+| [cosmos](skills/cosmos/) | [cosmos.so](https://cosmos.so) | Moodboard to named decisions: grid, type scale, spacing rhythm, color temperature |
+| [recent-design](skills/recent-design/) | [recent.design](https://recent.design) | "Does this read current?" Trend triage: adopt, adapt, skip |
+| [supahero](skills/supahero/) | [supahero.io](https://supahero.io) | Hero anatomy broken into reusable structure |
 | [pafolios](skills/pafolios/) | [pafolios.com](https://pafolios.com) | Case-study and showcase narrative spine |
-| [motionsites](skills/motionsites/) | [motionsites.ai](https://motionsites.ai) | Motion choreography patterns → real `motion/react` code |
-| [logosystem](skills/logosystem/) | [logosystem.co](https://logosystem.co) | 1,300+ real logo systems, faceted — plus systematic lockup/clearspace implementation |
+| [motionsites](skills/motionsites/) | [motionsites.ai](https://motionsites.ai) | Motion choreography patterns turned into `motion/react` code |
+| [logosystem](skills/logosystem/) | [logosystem.co](https://logosystem.co) | 1,300+ real logo systems, faceted, plus lockup and clearspace rules |
 
-### 🪪 Identity — logo, brand, type, color
-
-| Skill | Use when |
-|---|---|
-| [brandkit](skills/brandkit/) | Generating brand-guideline boards, logo systems, identity decks, visual-world presentations. |
-| [logoai](skills/logoai/) | Need a logo fast and cheap ([logoai.com](https://logoai.com)) — plus the ownership/licensing reality check before commercial launch. |
-| [bestfreefonts](skills/bestfreefonts/) | Sourcing genuinely free fonts ([bestfreefonts.com](https://bestfreefonts.com)) and self-hosting via `next/font/local`. **License verification is non-negotiable here.** |
-| [uicolors](skills/uicolors/) | One brand hex → full Tailwind 50–950 scale ([uicolors.app](https://uicolors.app)), wired into config and contrast-checked for AA. |
-
-### 🧩 Components & implementation
+### Identity: logo, brand, type, color, icons
 
 | Skill | Use when |
 |---|---|
-| [shadcn](skills/shadcn/) | Any `npx shadcn` command, `components.json`, token remapping, third-party registries. **Read before running the CLI on a Tailwind v3 project** — the v3/v4 fork is the first decision. |
-| [componentry](skills/componentry/) | Spectacle backgrounds, kinetic typography, scroll set-pieces — ~60 MIT components via the shadcn registry. |
-| [motion-primitives](skills/motion-primitives/) | Text reveals, number tickers, marquees, morphing dialogs, scroll reveals. Also: when *not* to animate. |
-| [react-best-practices](skills/react-best-practices/) | Performance. 40+ rules from Vercel Engineering — waterfalls, bundle size, data fetching. |
+| [brandkit](skills/brandkit/) | Generating brand-guideline boards, logo systems, identity decks. |
+| [logoai](skills/logoai/) | You need a logo fast and cheap ([logoai.com](https://logoai.com)), plus the ownership check before commercial use. |
+| [bestfreefonts](skills/bestfreefonts/) | Sourcing genuinely free fonts ([bestfreefonts.com](https://bestfreefonts.com)) and self-hosting them. License verification is non-negotiable. |
+| [uicolors](skills/uicolors/) | One brand hex to a full 50 to 950 scale ([uicolors.app](https://uicolors.app)), contrast-checked for AA. |
+| [iconography](skills/iconography/) | Choosing a project's icon set once (lucide, Tabler, Phosphor and others), then writing the icon spec and wrapper. |
 
-### 🖼️ Assets — background, texture, 3D, motion, audio
+### Components and implementation
 
 | Skill | Use when |
 |---|---|
-| [haikei](skills/haikei/) | Generated SVG backgrounds ([haikei.app](https://haikei.app)) — waves, blobs, blurry gradients, low-poly, dividers. |
-| [fffuel](skills/fffuel/) | Noise, grain, mesh gradients, holographic, neon glow, patterns ([fffuel.co](https://fffuel.co)) — ~40 generators routed by use case. |
-| [spline](skills/spline/) | Interactive 3D heroes ([spline.design](https://spline.design)) — plus the honest cost (~582KB gzipped runtime) and when to use a video export instead. |
-| [jitter](skills/jitter/) | Designer-authored animation ([jitter.video](https://jitter.video)) — MP4/GIF/Lottie exports and picking the right player. |
-| [uppbeat](skills/uppbeat/) | Music/SFX for demo videos ([uppbeat.io](https://uppbeat.io)) — license tiers, and why the answer for websites is usually a restrained no. |
+| [shadcn](skills/shadcn/) | Any `npx shadcn` command, `components.json`, token remapping, third-party registries. Read before running the CLI on a Tailwind v3 project. |
+| [arc-ui](skills/arc-ui/) | A calm, neutral product UI base as an alternative to shadcn, from [uiarc.dev](https://uiarc.dev). |
+| [componentry](skills/componentry/) | Spectacle backgrounds, kinetic type, scroll set-pieces: about 60 MIT components via the shadcn registry. |
+| [motion-primitives](skills/motion-primitives/) | Text reveals, number tickers, marquees, morphing dialogs. Also: when *not* to animate. |
+| [gauge-ui](skills/gauge-ui/) | Gauges, dials, meters and rings as composable SVG ([gauge-ui.dev](https://gauge-ui.dev)). |
+| [audiocn](skills/audiocn/) | Audio UI: players, waveforms, meters ([audiocn.dev](https://audiocn.dev)). |
+| [pele](skills/pele/) | Mermaid diagrams rendered as token-themed SVG ([pele.run](https://pele.run)). |
+| [mdxcn](skills/mdxcn/) | Design-system docs in MDX: steps, changelogs, decision records ([mdxcn.dev](https://mdxcn.dev)). |
+| [react-best-practices](skills/react-best-practices/) | Performance rules from Vercel Engineering: waterfalls, bundle size, data fetching. |
+
+### Assets: background, texture, 3D, motion, audio
+
+| Skill | Use when |
+|---|---|
+| [haikei](skills/haikei/) | Generated SVG backgrounds ([haikei.app](https://haikei.app)): waves, blobs, gradients, dividers. |
+| [fffuel](skills/fffuel/) | Noise, grain, mesh gradients, glow, patterns ([fffuel.co](https://fffuel.co)), routed by use case. |
+| [spline](skills/spline/) | Interactive 3D heroes ([spline.design](https://spline.design)), plus the honest runtime cost and when a video export is better. |
+| [jitter](skills/jitter/) | Designer-authored animation ([jitter.video](https://jitter.video)): MP4, GIF and Lottie exports and the right player. |
+| [uppbeat](skills/uppbeat/) | Music and SFX for demo videos ([uppbeat.io](https://uppbeat.io)): license tiers, and why websites usually need none. |
 
 ---
 
 ## Common routes
 
-**"Make this look better" (no other information)**
-→ `design-arsenal` to route → `taste-skill` to audit → `recent-design` to check it reads current
+**"Make this look better" (no other information):**
+`design-arsenal` to route, then `redesign-skill` to audit, then `recent-design` to check it reads current.
 
-**Greenfield landing page**
-→ `cosmos` (direction) → `supahero` (hero anatomy) → `bestfreefonts` + `uicolors` (type & color) → `shadcn` (base) → `motion-primitives` (life) → `taste-skill` (pre-flight)
+**Greenfield marketing site:**
+`cosmos` (direction), `squig` (structure), then Taste Skill for the build and its browser check.
 
-**Existing app looks dated**
-→ `redesign-skill` (audit) → `recent-design` (triage) → `soft-skill` (raise the ceiling) → `react-best-practices` (don't regress perf)
+**Greenfield app UI:**
+`cosmos`, `squig`, `bestfreefonts` and `uicolors` (type and color), `iconography`, `shadcn` or `arc-ui` (base), `motion-primitives` (life).
 
-**Brand identity from zero**
-→ `logosystem` (references) → `logoai` *or* a real designer (mark) → `brandkit` (guidelines) → `uicolors` + `bestfreefonts` (tokens)
+**Existing app looks dated:**
+`redesign-skill` (audit), `recent-design` (triage), `soft-skill` (raise the ceiling), `react-best-practices` (keep it fast).
 
-**Page feels flat**
-→ `fffuel` (texture/grain) or `haikei` (background) → `motion-primitives` (motion) → `spline` (only if 3D genuinely earns 582KB)
+**Brand identity from zero:**
+`logosystem` (references), `logoai` *or* a real designer (mark), `brandkit` (guidelines), `uicolors` and `bestfreefonts` (tokens).
+
+**Page feels flat:**
+`fffuel` or `haikei` (texture, background), `motion-primitives` (motion), `spline` only if 3D earns its weight.
 
 ---
 
 ## Notes on the tool skills
 
-Roughly half of these wrap external web tools (Cosmos, Haikei, fffuel, Spline, Jitter, Uppbeat, LogoAI, UI Colors…). Those tools are **browser-based and human-driven** — no API, no CLI. The skill's job is not to automate them; it's to know which tool fits the need, tell you exactly what to configure, and then handle the genuinely hard part: integrating the output into Next.js correctly.
+About half of these wrap external web tools (Cosmos, Haikei, fffuel, Spline, Jitter, Uppbeat, LogoAI, UI Colors). Those tools are browser-based and human-driven. The skill's job is not to automate them; it is to know which tool fits, how to hand off, and how to wire the result into code.
 
-Each of those skills also carries the licensing truth for its tool. That's deliberate — "is this font/track/logo actually safe to ship commercially" is the question that bites late, and `design-arsenal` aggregates the pre-flight.
+Each of those skills also carries the licensing facts for its tool, because "is this font, track or logo actually safe for commercial use" is the question that bites late. `design-arsenal` collects them into one pre-flight.
 
-**Stack assumption:** integration code targets **Next.js 14 + Tailwind 3.4 + motion v13 (`motion/react`)**. The design judgment is stack-agnostic; the code snippets are not. `ui-ux-pro-max` covers 22 stacks.
+**Stack assumption:** integration code targets Next.js 14 to 16, Tailwind 3.4 and `motion/react`. The design judgment is stack-agnostic; the snippets are not. `ui-ux-pro-max` covers 22 stacks.
 
-**One dangling reference:** `design-arsenal` routes charting to `dataviz`, which ships with Claude Code rather than living here.
+`design-arsenal` routes charting to `dataviz`, which comes with Claude Code rather than living here.
 
 ---
 
-## Licenses & attribution
+## Licenses and attribution
 
-This pack aggregates skills from several authors. **Each skill keeps its own license file where one was provided** — check `skills/<name>/LICENSE` before redistributing.
+This pack collects skills from several authors. **Each skill keeps its own license file where one was provided.** Check `skills/<name>/` before redistributing.
 
 | Skills | Author | License |
 |---|---|---|
-| `taste-skill`, `soft-skill`, `redesign-skill`, `minimalist-skill`, `brutalist-skill`, `brandkit`, `output-skill` | [Leonxlnx](https://github.com/leonxlnx) | MIT |
-| `frontend-design` | Anthropic | Apache 2.0 (see `LICENSE.txt`) |
-| `react-best-practices` | Vercel Engineering | See `skills/react-best-practices/` |
-| `ui-ux-pro-max` | Community | No license file shipped upstream — verify before redistributing |
-| All tool skills (`cosmos`, `haikei`, `fffuel`, `spline`, `jitter`, `uppbeat`, `logoai`, `logosystem`, `uicolors`, `bestfreefonts`, `shadcn`, `componentry`, `motion-primitives`, `motionsites`, `supahero`, `pafolios`, `recent-design`, `design-arsenal`) | This repo | MIT — see [LICENSE](LICENSE) |
+| `soft-skill`, `redesign-skill`, `minimalist-skill`, `brutalist-skill`, `output-skill` | [Leonxlnx](https://github.com/Leonxlnx/taste-skill) (from Taste Skill v1, which has since folded them into one skill) | MIT |
+| `brandkit` | [Leonxlnx](https://github.com/Leonxlnx/imagegen-skills) | MIT |
+| `frontend-design` | [Anthropic](https://github.com/anthropics/skills) | Apache 2.0 (see `LICENSE.txt`) |
+| `react-best-practices` | [Vercel](https://github.com/vercel-labs/agent-skills) | See `skills/react-best-practices/` |
+| `ui-ux-pro-max` | [Next Level Builder](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT |
+| All tool skills (`cosmos`, `squig`, `haikei`, `fffuel`, `spline`, `jitter`, `uppbeat`, `logoai`, `logosystem`, `uicolors`, `bestfreefonts`, `iconography`, `shadcn`, `arc-ui`, `componentry`, `motion-primitives`, `gauge-ui`, `audiocn`, `pele`, `mdxcn`, `motionsites`, `supahero`, `pafolios`, `recent-design`, `design-arsenal`) | This repo | MIT |
 
-The tool skills document third-party services but contain no third-party code. The services themselves (Cosmos, Haikei, Uppbeat, LogoAI, …) have their own terms — the skills tell you what they are, but **verify before shipping commercially**.
+The tool skills document third-party services and libraries but contain no third-party code. Those services have their own terms; the skills say what they are, but verify before commercial use.
 
 If you authored something here and want the attribution corrected or the skill removed, open an issue.
 
 ---
 
-## Contributing
+## Updating
 
-The bar for adding a skill: it has to change the output on a real project, not just describe a tool. Open an issue with what it did that the existing 28 didn't.
+Third-party skills are synced from their upstream repos; the rest are maintained here. Last sync: November 2026 (`frontend-design`, `ui-ux-pro-max`, `brandkit`, and the final pre-retirement versions of the Taste Skill v1 skills).

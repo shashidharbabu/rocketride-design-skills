@@ -1,0 +1,9 @@
+{
+  "name": "rocketride-design",
+  "description": "34 UI/UX and design skills for Claude Code: direction, structure, identity, icons, type, color, components, gauges, diagrams, audio UI, docs, texture, motion, 3D and audio, routed by design-arsenal.",
+  "version": "2.0.0",
+  "author": { "name": "shashidharbabu" },
+  "homepage": "https://github.com/shashidharbabu/rocketride-design-skills",
+  "repository": "https://github.com/shashidharbabu/rocketride-design-skills",
+  "keywords": ["design", "ui", "frontend", "motion", "branding", "skills"]
+}

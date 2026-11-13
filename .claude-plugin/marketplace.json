@@ -1,0 +1,13 @@
+{
+  "name": "rocketride-design-skills",
+  "description": "Curated UI/UX and design skills for Claude Code, kept because they changed the output on real projects.",
+  "owner": { "name": "shashidharbabu" },
+  "plugins": [
+    {
+      "name": "rocketride-design",
+      "description": "34 UI/UX and design skills for Claude Code: direction, structure, identity, icons, type, color, components, gauges, diagrams, audio UI, docs, texture, motion, 3D and audio, routed by design-arsenal.",
+      "version": "2.0.0",
+      "source": "./"
+    }
+  ]
+}

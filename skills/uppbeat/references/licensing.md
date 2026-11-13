@@ -67,7 +67,7 @@ ask Uppbeat support in writing first.
 ## Practical rules for RocketRide-style work
 
 1. Company launch content (RocketRide marketing videos, ads) = **Business
-   tier**, full stop. shashidhar.babu@rocketride.ai publishing on a company
+   tier**, full stop. An employee publishing on a company
    channel is org content even if the download happened on a personal login.
 2. The license lives with the **account that downloaded**. Keep a record of
    which account/tier downloaded each track used in shipped content, and the

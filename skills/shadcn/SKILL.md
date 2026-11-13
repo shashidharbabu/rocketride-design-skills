@@ -17,7 +17,10 @@ This skill owns the CLI/registry/theming mechanics. For *whether* shadcn is the
 right stack for an app, defer to **rocketride-frontend** (shadcn is its shared
 baseline); for design rules and palettes, **ui-ux-pro-max**; for not looking
 like a stock shadcn site, **frontend-design** / **taste-skill**; for animation
-layered on top, **motion-primitives**.
+layered on top, **motion-primitives**; for which icon set to use and swapping
+lucide out (`migrate icons`: `@latest` supports lucide/tabler/hugeicons/
+phosphor/remixicon/radix, `2.3.0` only lucide↔radix, neither does
+iconoir/heroicons), **iconography**.
 
 ## The version fork — decide this first
 
@@ -36,10 +39,30 @@ v4-style CSS your build can't process. There is no compatibility flag; the fork
 is the version number itself. Full verified command reference for both:
 `references/cli.md`.
 
+**Oct 2026: `2.3.0` is no longer safe as-is on v3** (re-verified on a fresh
+Next 14.2 / Tailwind 3.4 app, and hit independently by three registry tests):
+
+- **`init` writes broken colours.** It now emits `--background: oklch(...)` in
+  `globals.css` but still wraps every colour as `hsl(var(--background))` in
+  `tailwind.config.ts` — invalid CSS, every token renders wrong. Fix right after
+  init (keeps `/50` opacity modifiers working; build + render verified):
+  `sed -i '' "s/hsl(var(\(--[a-z0-9-]*\)))/color-mix(in oklch, var(\1) calc(<alpha-value> * 100%), transparent)/g" tailwind.config.ts`
+- **Core `add` is still fine** — `2.3.0 add button card` writes v3 classes.
+- **Never use `2.3.0` for third-party registry items** (`@audiocn`, `@uiarc`,
+  gauge-ui, mdxcn URLs): it hangs on overwrite prompts, writes a literal
+  `./@components/` folder at the repo root, mangles cross-file imports, and
+  can't resolve namespaces outside ui.shadcn.com. Use `shadcn@latest add <url>`
+  even on a v3 repo — it leaves `tailwind.config`/`globals.css` alone for
+  items without CSS — then port by hand anything v4-only the item ships
+  (`@theme`/`@utility` CSS, `h-(--var)`, `outline-hidden`, `shadow-xs`). Each
+  third-party skill lists its own v4-only surface; the tested registries are
+  tabled in `references/cli.md`.
+
 ## Workflow — existing Tailwind 3.4 + Next.js App Router project
 
 1. `npx shadcn@2.3.0 init` — answers create `components.json`, add the `cn()`
    util, install `tailwindcss-animate` (1.0.7), and write default CSS variables.
+   **Then apply the `hsl()` → `color-mix` fix above before anything else.**
 2. **Immediately remap the tokens onto the existing palette** before adding
    components. Never ship shadcn's default zinc theme on a branded surface —
    the worked remap onto this repo's near-black `ink`/`panel` + `ember` palette
@@ -69,8 +92,8 @@ the archetype furniture rocketride-frontend's admin-console reference assumes.
 
 ## When not to use
 
-- **A page with its own design system already in flight** (this repo's
-  Datasheet and Signal Bench specimens): shadcn's semantic tokens
+- **A page with its own design system already in flight** (e.g. a
+  bespoke specimen page): shadcn's semantic tokens
   (`bg-background`, `text-muted-foreground`) would sit beside bespoke tokens
   (`bg-panel`, `text-ember`) as a second, competing vocabulary. Either remap
   shadcn's variables onto the existing tokens (references/theming.md) or skip
